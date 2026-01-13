@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  nonebot:
+    build: . 
+    container_name: nonebot
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      # 将外部插件目录挂载到容器内的 plugins 目录
+      - ./plugins:/app/plugins
+      # 环境变量配置文件
+      - ./.env:/app/.env
+      # 日志目录
+      - ./logs:/app/logs
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - bot-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/onebot/v11/ws || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  napcat:
+    image: mlikiowa/napcat-docker:latest
+    container_name: napcat
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+      - "6099:6099"
+      - "6199:6199"
+    volumes:
+      - ./onebot11_1035757196.json:/app/config/onebot11_1035757196.json
+      # 持久化NapCat登录信息和数据
+      - ./napcat_data:/app/.config/QQ/NapCat
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - bot-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3001 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  bot-network:
+    driver: bridge

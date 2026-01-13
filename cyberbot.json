@@ -1,6 +1,6 @@
 {
   "baseUrl": "ws://127.0.0.1:3001",
-  "accessToken": "123456",
+  "accessToken": "",
   "throwPromise": false,
   "reconnection": {
     "enable": true,
@@ -8,19 +8,23 @@
     "delay": 5000
   },
   "debug": false,
-  "bot": 123456789,
+  "bot": 1035757196,
   "master": [
-    987654321
+    3352604554
   ],
-  "admins": [
-    987654321
-  ],
+  "admins": [],
   "plugins": {
     "system": [
       "cmds"
     ],
     "user": [
-      "demo"
+      "demo",
+      "kaomoji",
+      "keyword",
+      "derect-link",
+      "timeQQ",
+      "blog",
+      "gpt"
     ]
   },
   "loginfo": {

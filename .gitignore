@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+venv/
 
 # Build outputs
 dist/
@@ -23,3 +24,6 @@ Thumbs.db
 
 # Git files
 .git/
+
+# Backup directories
+backup_temp/

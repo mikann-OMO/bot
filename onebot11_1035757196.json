@@ -1,0 +1,38 @@
+{
+  "network": {
+    "httpServers": [],
+    "httpSseServers": [],
+    "httpClients": [],
+    "websocketServers": [
+      {
+        "enable": true,
+        "name": "Mikan",
+        "host": "0.0.0.0",
+        "port": 3001,
+        "reportSelfMessage": true,
+        "enableForcePushEvent": true,
+        "messagePostFormat": "array",
+        "token": "",
+        "debug": false,
+        "heartInterval": 30000
+      }
+    ],
+    "websocketClients": [
+      {
+        "enable": true,
+        "name": "bot",
+        "url": "ws://host.docker.internal:8080/onebot/v11/ws",
+        "token": "jN^^F}5h$:v?vV:N",
+        "reportSelfMessage": false,
+        "messagePostFormat": "array",
+        "heartInterval": 30000,
+        "reconnectInterval": 30000,
+        "maxReconnectAttempts": 0
+      }
+    ],
+    "plugins": []
+  },
+  "musicSignUrl": "",
+  "enableLocalFile2Url": false,
+  "parseMultMsg": false
+}

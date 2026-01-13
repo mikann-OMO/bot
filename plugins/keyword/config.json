@@ -1,4 +1,6 @@
 {
-  "enableGroups": [],
-  "keywords": []
+  "enableGroups": [
+    -1
+  ],
+  "cooldownTime": 1000
 }
